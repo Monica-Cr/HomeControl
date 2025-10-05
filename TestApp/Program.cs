@@ -25,10 +25,10 @@ using Integration.Zigbee;
 
 // using Home.Zigbee;
 var ctl = new ZigbeeMqttController(
-    brokerHost: "192.168.1.10",
+    brokerHost: "localhost",
     brokerPort: 1883,
-    username: "mqttuser",
-    password: "mqttpass",
+    username: "",
+    password: "",
     useTls: false,
     z2mBase: "zigbee2mqtt");
 
