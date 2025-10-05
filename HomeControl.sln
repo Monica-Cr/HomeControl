@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Wiz", "Integrat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{C395889D-578F-452A-9AFC-1782C6631D86}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{CF962089-2C3A-4A39-81D8-9D026FC9DBB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{6E369DCB-A3E9-42DF-892F-CFDE95962114}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{15853793-E4DC-439A-B17F-DA82414A075E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A688A063-7D6E-40A8-8111-C9F5E7B6FBE2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{5C3E48B9-F2AA-4F01-A185-C689BE41C749} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C395889D-578F-452A-9AFC-1782C6631D86} = {15853793-E4DC-439A-B17F-DA82414A075E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28C6B5D4-553B-47A7-A390-FD2E26C9CF7A}
