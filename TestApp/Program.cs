@@ -39,7 +39,7 @@ await ctl.PermitJoinAsync(true, seconds: 120);
 
 // Get devices
 var devices = await ctl.GetDevicesAsync();
-Console.WriteLine(devices);
+Console.WriteLine(JsonConvert.SerializeObject(devices));
 
 // Clean up
 await ctl.DisconnectAsync();
