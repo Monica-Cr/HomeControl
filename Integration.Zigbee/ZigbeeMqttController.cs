@@ -247,7 +247,7 @@ namespace Integration.Zigbee
                 reqTopic: $"{Z2MBase}/bridge/request/devices",
                 resTopic: $"{Z2MBase}/bridge/response/devices",
                 payload: new { },
-                timeout ?? TimeSpan.FromSeconds(5),
+                timeout ?? TimeSpan.FromSeconds(60),
                 ct);
 
         public Task<JsonElement> GetNetworkMapAsync(string format = "raw", TimeSpan? timeout = null, CancellationToken ct = default)
