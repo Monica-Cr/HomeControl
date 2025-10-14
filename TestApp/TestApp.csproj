@@ -8,12 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MQTTnet" Version="5.0.1.1416" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="4.3.7.1207" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Integration.Wiz\Integration.Wiz.csproj" />
-    <ProjectReference Include="..\Integration.Zigbee\Integration.Zigbee.csproj" />
   </ItemGroup>
 
 </Project>

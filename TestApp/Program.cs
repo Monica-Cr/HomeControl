@@ -1,8 +1,4 @@
-﻿
-using Integration.Wiz;
-using Integration.Zigbee;
-using MQTTnet;
-using MQTTnet.Client;
+﻿using MQTTnet;
 using Newtonsoft.Json;
 using System.Text;
 using static Integration.Wiz.WizUdp;
@@ -54,7 +50,7 @@ class Program
     {
         Console.WriteLine("Starting Zigbee Test App...");
 
-        var mqttFactory = new MqttFactory();
+        var mqttFactory = new MqttClientFactory();
         var mqttClient = mqttFactory.CreateMqttClient();
 
         var options = new MqttClientOptionsBuilder()
@@ -65,7 +61,7 @@ class Program
         mqttClient.ApplicationMessageReceivedAsync += e =>
         {
             var topic = e.ApplicationMessage.Topic;
-            var payload = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+            var payload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
             Console.WriteLine($"\n[MQTT] Topic: {topic}");
             Console.WriteLine($"[MQTT] Payload: {payload}");
             if (topic.StartsWith("zigbee2mqtt/") && payload.Contains("joined"))
