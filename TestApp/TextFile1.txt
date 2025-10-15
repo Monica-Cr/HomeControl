@@ -1,5 +1,0 @@
-﻿Commands
-
-net start mosquitto
-netstat -an | find "1883"
-cd "C:\Program Files\mosquitto"

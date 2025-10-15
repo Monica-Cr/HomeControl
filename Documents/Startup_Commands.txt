@@ -1,0 +1,8 @@
+﻿Commands
+
+npm start
+
+net start mosquitto
+
+cd "C:\Program Files\mosquitto"
+netstat -an | find "1883"
