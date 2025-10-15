@@ -24,7 +24,7 @@ A user can:
 ## Mood
 - A user can create a mood
 - A user can delete a mood
-- A user can add a device to a mood
+- A user can add a device to a mood and select device preset
 - A user can remove a device from a mood
 - A user can add multiple devices by selecting a group to the mood
 - A user can activate a mood
