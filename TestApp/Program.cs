@@ -62,17 +62,12 @@ class Program
         {
             var topic = e.ApplicationMessage.Topic;
             var payload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
-            Console.WriteLine($"\n[MQTT] Topic: {topic}");
-            Console.WriteLine($"[MQTT] Payload: {payload}");
+            Console.WriteLine($"\n[ApplicationMessageReceivedAsync][MQTT] Topic: {topic}");
+            Console.WriteLine($"[ApplicationMessageReceivedAsync][MQTT] Payload: {payload}");
             if (topic.StartsWith("zigbee2mqtt/") && payload.Contains("joined"))
             {
                 Console.WriteLine($"\n✅ Device joined! Topic: {topic}");
                 Console.WriteLine($"Payload: {payload}");
-            }
-            else
-            {
-                Console.WriteLine($"\n[MQTT] Topic: {topic}");
-                Console.WriteLine($"[MQTT] Payload: {payload}");
             }
 
             return Task.CompletedTask;
@@ -99,13 +94,15 @@ class Program
         catch (Exception ex)
         {
             Console.WriteLine($"Failed to connect: {ex.Message}");
-            Console.ReadKey();
+            Console.ReadKey();  
             return;
         }
 
         await mqttClient.SubscribeAsync("zigbee2mqtt/bridge/#");
         await mqttClient.SubscribeAsync("zigbee2mqtt/logging");
         await mqttClient.SubscribeAsync("zigbee2mqtt/bridge/logging");
+        await mqttClient.SubscribeAsync("zigbee2mqtt/bridge/devices");
+        await mqttClient.SubscribeAsync("zigbee2mqtt/bridge/event");
         Console.WriteLine("Subscribed to Zigbee2MQTT bridge topics.");
 
         Console.WriteLine("Enabling Zigbee pairing for 90 seconds...");
@@ -120,9 +117,7 @@ class Program
 
 
         Console.WriteLine("Put your device in pairing mode.");
-        Console.WriteLine("Press enter");
-        Console.ReadKey();
-
+        Thread.Sleep(90000); // Wait for 90 seconds
 
         Console.WriteLine("Disabling Zigbee pairing...");
         var payloadDisable = "{\"id\":2,\"type\":\"request\",\"command\":\"permit_join\",\"payload\":{\"value\":false}}";
