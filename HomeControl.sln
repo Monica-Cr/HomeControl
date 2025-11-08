@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeControl.Api", "HomeControl.Api\HomeControl.Api.csproj", "{D81A96A7-327C-40F8-BCBB-9F4C1BE5B217}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeControl.Infrastructure", "HomeControl.Infrastructure\HomeControl.Infrastructure.csproj", "{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{D81A96A7-327C-40F8-BCBB-9F4C1BE5B217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D81A96A7-327C-40F8-BCBB-9F4C1BE5B217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D81A96A7-327C-40F8-BCBB-9F4C1BE5B217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D81A96A7-327C-40F8-BCBB-9F4C1BE5B217} = {15853793-E4DC-439A-B17F-DA82414A075E}
+		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28C6B5D4-553B-47A7-A390-FD2E26C9CF7A}
