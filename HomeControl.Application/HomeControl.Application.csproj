@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HomeControl.Application\HomeControl.Application.csproj" />
-  </ItemGroup>
-
 </Project>

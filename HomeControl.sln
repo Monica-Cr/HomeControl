@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeControl.Api", "HomeCont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeControl.Infrastructure", "HomeControl.Infrastructure\HomeControl.Infrastructure.csproj", "{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeControl.Application", "HomeControl.Application\HomeControl.Application.csproj", "{7D76D7E5-60AB-49F6-8BFD-F55D88B67E16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D76D7E5-60AB-49F6-8BFD-F55D88B67E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D76D7E5-60AB-49F6-8BFD-F55D88B67E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D76D7E5-60AB-49F6-8BFD-F55D88B67E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D76D7E5-60AB-49F6-8BFD-F55D88B67E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D81A96A7-327C-40F8-BCBB-9F4C1BE5B217} = {15853793-E4DC-439A-B17F-DA82414A075E}
 		{63343176-4AE2-49E7-AF9E-05CFDB3AEF04} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7D76D7E5-60AB-49F6-8BFD-F55D88B67E16} = {CF962089-2C3A-4A39-81D8-9D026FC9DBB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28C6B5D4-553B-47A7-A390-FD2E26C9CF7A}
