@@ -18,23 +18,16 @@ namespace HomeControl.Api.Controllers
             _wsClient = wsClient;
         }
 
-        [HttpGet("entities")]
-        public async Task<ActionResult> GetEntities()
-        {
-            var entitiesJson = await _wsClient.GetEntitiesJsonAsync();
-            var json = JsonDocument.Parse(entitiesJson);
-            return Ok(json.RootElement);
-        }
 
-        [HttpGet("entity")]
-        public async Task<ActionResult> GetEntity(string id)
-        {
-            //List<EntityDto> entities = await _homeAssistantClient.GetEntities();
+        //[HttpGet("entity")]
+        //public async Task<ActionResult> GetEntity(string id)
+        //{
+        //    //List<EntityDto> entities = await _homeAssistantClient.GetEntities();
 
-            string entities = await _homeAssistantClient.GetEntity(id);
+        //    string entities = await _homeAssistantClient.GetEntity(id);
 
-            return Ok(entities);
-        }
+        //    return Ok(entities);
+        //}
 
         [HttpGet("devices")]
         public async Task<IActionResult> GetDevices()
@@ -44,6 +37,20 @@ namespace HomeControl.Api.Controllers
             return Ok(json.RootElement);
         }
 
+        [HttpGet("entities")]
+        public async Task<ActionResult> GetEntities()
+        {
+            var entitiesJson = await _wsClient.GetEntitiesJsonAsync();
+            var json = JsonDocument.Parse(entitiesJson);
+            return Ok(json.RootElement);
+        }
 
+        [HttpGet("states")]
+        public async Task<ActionResult> GetStates()
+        {
+            string statesJson = await _homeAssistantClient.GetStatesAsync();
+            var json = JsonDocument.Parse(statesJson);
+            return Ok(json.RootElement);
+        }
     }
 }

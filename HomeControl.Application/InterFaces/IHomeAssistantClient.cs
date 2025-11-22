@@ -9,8 +9,7 @@ namespace HomeControl.Application.InterFaces
 {
     public interface IHomeAssistantClient
     {
-        //Task<List<EntityDto>> GetEntities();
-        Task<string> GetEntities();
+        Task<string> GetStatesAsync();
         Task<string> GetEntity(string id);
     }
 }

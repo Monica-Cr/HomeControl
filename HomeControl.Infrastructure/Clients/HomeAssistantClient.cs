@@ -19,7 +19,7 @@ namespace HomeControl.Infrastructure.Clients
             _httpClient = httpClient;
         }
 
-        public async Task</*List<EntityDto>*/string> GetEntities()
+        public async Task<string> GetStatesAsync()
         {
             try
             {
@@ -27,22 +27,17 @@ namespace HomeControl.Infrastructure.Clients
 
                 response.EnsureSuccessStatusCode();
 
-                //List<EntityDto>? entities = await response.Content.ReadFromJsonAsync<List<EntityDto>>();
-
-                //return entities ?? new List<EntityDto>();
-
-                // Get raw JSON
                 var json = await response.Content.ReadAsStringAsync();
-                return json;
 
+                return json;
             }
             catch( HttpRequestException e)
             {
-                throw;
+                throw; // TODO: Add logging
             }
             catch (Exception e)
             {
-                throw;
+                throw; // TODO: Add logging
             }
         }
 
