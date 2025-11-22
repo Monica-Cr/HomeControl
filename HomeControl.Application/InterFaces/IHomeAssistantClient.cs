@@ -10,6 +10,7 @@ namespace HomeControl.Application.InterFaces
     public interface IHomeAssistantClient
     {
         Task<string> GetStatesAsync();
+        Task<string> GetServicesAsync();
         Task<string> GetEntity(string id);
     }
 }

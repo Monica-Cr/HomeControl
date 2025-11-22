@@ -52,5 +52,13 @@ namespace HomeControl.Api.Controllers
             var json = JsonDocument.Parse(statesJson);
             return Ok(json.RootElement);
         }
+
+        [HttpGet("services")]
+        public async Task<ActionResult> GetServices()
+        {
+            string servicesJson = await _homeAssistantClient.GetServicesAsync();
+            var json = JsonDocument.Parse(servicesJson);
+            return Ok(json.RootElement);
+        }
     }
 }
