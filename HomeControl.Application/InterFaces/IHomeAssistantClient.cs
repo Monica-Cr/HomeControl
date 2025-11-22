@@ -11,5 +11,6 @@ namespace HomeControl.Application.InterFaces
     {
         //Task<List<EntityDto>> GetEntities();
         Task<string> GetEntities();
+        Task<string> GetEntity(string id);
     }
 }

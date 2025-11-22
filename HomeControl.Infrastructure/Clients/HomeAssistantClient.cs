@@ -45,5 +45,28 @@ namespace HomeControl.Infrastructure.Clients
                 throw;
             }
         }
+
+        public async Task<string> GetEntity(string id)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"states/{id}");
+
+                response.EnsureSuccessStatusCode();
+
+                //List<EntityDto>? entities = await response.Content.ReadFromJsonAsync<List<EntityDto>>();
+
+                //return entities ?? new List<EntityDto>();
+
+                // Get raw JSON
+                var json = await response.Content.ReadAsStringAsync();
+                return json;
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

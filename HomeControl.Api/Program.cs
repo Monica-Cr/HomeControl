@@ -18,7 +18,15 @@ builder.Services.AddHttpClient<IHomeAssistantClient, HomeAssistantClient>(client
     client.BaseAddress = new Uri(baseUrl);
     client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 });
-//builder.Services.AddScoped<IHomeAssistantClient, HomeAssistantClient>();
+
+builder.Services.AddSingleton<IHomeAssistantWebsocketClient>(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var baseUrl = config["HomeAssistant:WebSocketUrl"];
+    var token = config["HomeAssistant:Token"];
+    return new HomeAssistantWebsocketClient(baseUrl, token);
+});
+
 
 var app = builder.Build();
 

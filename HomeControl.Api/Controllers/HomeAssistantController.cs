@@ -10,9 +10,11 @@ namespace HomeControl.Api.Controllers
     public class HomeAssistantController : ControllerBase
     {
         private readonly IHomeAssistantClient _homeAssistantClient;
-        public HomeAssistantController(IHomeAssistantClient homeAssistantClient)
+        private readonly IHomeAssistantWebsocketClient _wsClient;
+        public HomeAssistantController(IHomeAssistantClient homeAssistantClient, IHomeAssistantWebsocketClient wsClient)
         {
             _homeAssistantClient = homeAssistantClient;
+            _wsClient = wsClient;
         }
 
         [HttpGet("entities")]
@@ -24,5 +26,24 @@ namespace HomeControl.Api.Controllers
 
             return Ok(entities);
         }
+
+        [HttpGet("entity")]
+        public async Task<ActionResult> GetEntity(string id)
+        {
+            //List<EntityDto> entities = await _homeAssistantClient.GetEntities();
+
+            string entities = await _homeAssistantClient.GetEntity(id);
+
+            return Ok(entities);
+        }
+
+        [HttpGet("devices")]
+        public async Task<IActionResult> GetDevices()
+        {
+            var json = await _wsClient.GetDevicesJsonAsync();
+            return Content(json, "application/json");
+        }
+
+        
     }
 }
