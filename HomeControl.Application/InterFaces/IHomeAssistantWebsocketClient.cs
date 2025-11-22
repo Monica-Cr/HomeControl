@@ -13,6 +13,8 @@ namespace HomeControl.Application.InterFaces
         Task SendMessageAsync(object message);
         Task<string> ReceiveMessageAsync();
         Task<string> ReceiveFullMessageAsync(ClientWebSocket ws);
+
         Task<string> GetDevicesJsonAsync();
+        Task<string> GetEntitiesJsonAsync();
     }
 }

@@ -93,5 +93,19 @@ namespace HomeControl.Infrastructure.Clients
             var response = await ReceiveFullMessageAsync(_socket);
             return response;
         }
+        public async Task<string> GetEntitiesJsonAsync()
+        {
+            await ConnectAndAuthenticteAsync();
+            var request = new
+            {
+                id = 2,
+                type = "get_states"
+            };
+
+            await SendMessageAsync(request);
+            
+            var response = await ReceiveFullMessageAsync(_socket);
+            return response;
+        }
     }
 }

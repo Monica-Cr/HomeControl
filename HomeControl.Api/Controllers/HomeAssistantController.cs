@@ -21,11 +21,9 @@ namespace HomeControl.Api.Controllers
         [HttpGet("entities")]
         public async Task<ActionResult> GetEntities()
         {
-            //List<EntityDto> entities = await _homeAssistantClient.GetEntities();
-
-            string entities = await _homeAssistantClient.GetEntities();
-
-            return Ok(entities);
+            var entitiesJson = await _wsClient.GetEntitiesJsonAsync();
+            var json = JsonDocument.Parse(entitiesJson);
+            return Ok(json.RootElement);
         }
 
         [HttpGet("entity")]
