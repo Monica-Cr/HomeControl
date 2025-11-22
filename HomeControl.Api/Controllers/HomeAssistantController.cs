@@ -2,6 +2,7 @@
 using HomeControl.Application.InterFaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace HomeControl.Api.Controllers
 {
@@ -40,10 +41,11 @@ namespace HomeControl.Api.Controllers
         [HttpGet("devices")]
         public async Task<IActionResult> GetDevices()
         {
-            var json = await _wsClient.GetDevicesJsonAsync();
-            return Content(json, "application/json");
+            var devicesJson = await _wsClient.GetDevicesJsonAsync();
+            var json = JsonDocument.Parse(devicesJson);
+            return Ok(json.RootElement);
         }
 
-        
+
     }
 }
