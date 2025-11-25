@@ -1,8 +1,9 @@
-﻿using HomeControl.Application.Dtos.HomeAssistant;
+﻿using HomeControl.Application.Dtos;
 using HomeControl.Application.InterFaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace HomeControl.Api.Controllers
 {
@@ -18,31 +19,28 @@ namespace HomeControl.Api.Controllers
             _wsClient = wsClient;
         }
 
-
-        //[HttpGet("entity")]
-        //public async Task<ActionResult> GetEntity(string id)
-        //{
-        //    //List<EntityDto> entities = await _homeAssistantClient.GetEntities();
-
-        //    string entities = await _homeAssistantClient.GetEntity(id);
-
-        //    return Ok(entities);
-        //}
-
         [HttpGet("devices")]
         public async Task<IActionResult> GetDevices()
         {
             var devicesJson = await _wsClient.GetDevicesJsonAsync();
-            var json = JsonDocument.Parse(devicesJson);
-            return Ok(json.RootElement);
+
+            DevicesResponseDto? devicesResponse = JsonSerializer.Deserialize<DevicesResponseDto>(devicesJson);
+            return Ok(devicesResponse.Devices);
         }
 
         [HttpGet("entities")]
         public async Task<ActionResult> GetEntities()
         {
             var entitiesJson = await _wsClient.GetEntitiesJsonAsync();
-            var json = JsonDocument.Parse(entitiesJson);
-            return Ok(json.RootElement);
+
+            EntityResponseDto? entityResponse = JsonSerializer.Deserialize<EntityResponseDto>(entitiesJson);
+
+            var options = new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            return new JsonResult(entityResponse.Entities, options);
         }
 
         [HttpGet("states")]
