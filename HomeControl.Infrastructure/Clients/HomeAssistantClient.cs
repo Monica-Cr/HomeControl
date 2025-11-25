@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Diagnostics;
 using System.Net.Http.Json;
 using HomeControl.Application.InterFaces;
-using HomeControl.Application.Dtos.HomeAssistant;
 
 namespace HomeControl.Infrastructure.Clients
 {
